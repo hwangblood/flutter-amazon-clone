@@ -67,7 +67,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () =>
+                                    deleteProduct(productData, index),
                                 icon: const Icon(Icons.delete_outline),
                               ),
                             ],
@@ -91,10 +92,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
   }
 
   Future<void> fetchAllProducts() async {
-    final productList = await adminService.fetchAllProducts(context: context);
+    products = await adminService.fetchAllProducts(context: context);
+    setState(() {});
+  }
 
-    setState(() {
-      products = productList;
-    });
+  void deleteProduct(Product product, int index) {
+    adminService.deleteProduct(
+      context: context,
+      product: product,
+      onSuccess: () {
+        products!.removeAt(index);
+        setState(() {});
+      },
+    );
   }
 }
