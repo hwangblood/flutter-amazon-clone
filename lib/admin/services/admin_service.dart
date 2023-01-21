@@ -87,18 +87,6 @@ class AdminService {
                 jsonEncode(
                   jsonDecode(res.body)[i],
                 ),
-                //     jsonEncode({
-                //   "_id": "639835f01adff06cba9da73e",
-                //   "name": "first. product",
-                //   "description": "djznnz have n,ndhdhhc",
-                //   "images": [
-                //     "https://res.cloudinary.com/vn4vcthms/image/upload/v1670919651/amazon_clone/first.%20product%20/h1paphkx4e6tyzlj78eu.jpg"
-                //   ],
-                //   "quantity": 23,
-                //   "price": 3737,
-                //   "category": "Mobiles",
-                //   "__v": 0
-                // }),
               ),
             );
           }
